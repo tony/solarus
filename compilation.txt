@@ -130,14 +130,30 @@ dynamic libraries that might be hard to find as binaries on websites
 The directory libraries/macosx contains some required static and dynamic
 libraries that are not provided as binaries by their authors, but I don't
 guarantee that they are up-to-date.
+
 The Lua readme recommends to link statically against Lua, so you shouldn't
 embed it.
+
 Also, the OpenAL framework is already part of the OSX system since 10.4, so you
 don't have to embed this one either.
+
 You can use both .dylib or .framework for the other ones, but just remember
 that you have to check the version number, runpath search, architecture and
 backward compatibility if you want to deploy your application.
 
+Also, you will need to download the following packages via brew:
+
+```sh
+brew install sdl2 libvorbis libmodplug cmake ninja luajit sdl2_image sdl2_ttf
+
+When generating the project in CMake you must set the ``CMAKE_OSX_SYSROOT`` to
+point to the path of your OS X SDK (included with XCode). For instance, on OS X
+10.11:
+
+```sh
+cd build
+cmake .. -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
+```
 
 ---------------------------
 3  Compilation instructions
