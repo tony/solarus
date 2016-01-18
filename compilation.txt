@@ -285,6 +285,15 @@ and SOLARUS_HEADERS_INSTALL_DESTINATION.
 4.1  Mac OS X
 -------------
 
+- Pre-requisites
+
+To install the needed packages via the brew package manager:
+
+brew install sdl2 libvorbis libmodplug cmake ninja luajit sdl2_image sdl2_ttf
+
+You will also need a copy of OS X SDK, which is included with XCode, which is freely available on the
+App Store.
+
 - Compile on OSX
 
 You can compile solarus just by doing the default setting with cmake, or generate the XCode project. 
@@ -297,7 +306,6 @@ To do so, pass SOLARUS_SYSROOT, SOLARUS_DEPLOYMENT or/and SOLARUS_ARCH constants
 cmake to overload default settings, just like the following example :
 
 $ cmake -DSOLARUS_SYSROOT="/Developer/SDKs/MacOSX10.5.sdk" -DSOLARUS_ARCH="ppc;i386;x86_64" -DSOLARUS_DEPLOYMENT=10.5 .
-
 
 - Deploy on OSX
 
